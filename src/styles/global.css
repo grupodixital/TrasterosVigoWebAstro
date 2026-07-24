@@ -1,0 +1,60 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+:root {
+  --color-ink: #0A0A0A;
+  --color-ink-soft: #1A1A1A;
+  --color-gold: #E7C13B;
+  --color-gold-dark: #C9A227;
+  --color-bg: #FFFFFF;
+  --color-bg-alt: #F5F5F3;
+  --color-text-muted: #6B6B6B;
+
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Poppins", sans-serif;
+
+  --radius-pill: 999px;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink-soft);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, .brand {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 700;
+}
+
+.btn {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 16px 32px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--color-ink);
+  color: var(--color-gold);
+}
+.btn-primary:hover { background: var(--color-ink-soft); }
+
+.btn-secondary {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+.btn-secondary:hover { background: var(--color-gold-dark); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-ink);
+  border: 2px solid var(--color-ink);
+  padding: 14px 30px;
+}

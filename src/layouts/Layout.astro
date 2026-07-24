@@ -1,12 +1,17 @@
+---
+import "../styles/global.css";
+import SEO from "../components/Seo.astro";
+
+const {
+  title = "Trasteros en Vigo",
+  description = "Alquiler de Trasteros y guardamubles en Vigo",
+  image = "/src/assets/logo.svg",
+} = Astro.props;
+---
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+    	<SEO title={title} description={description} image={image} />
 	</head>
 	<body>
 		<slot />
