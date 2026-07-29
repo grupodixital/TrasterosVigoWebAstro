@@ -1,0 +1,31 @@
+---
+interface Props {
+  titulo: string;
+  imagen: string;
+  enlace: string;
+  textoboton: string;
+}
+
+const {titulo, imagen, enlace, textoboton } = Astro.props;
+---
+<div class="flex flex-col items-center justify-center gap-4 w-full max-w-sm mx-auto p-4">
+  
+  <!-- 1. Imagen Arriba (Centrada automáticamente por el flex-col de arriba) -->
+  <img
+    src={imagen}
+    class="w-full rounded-xl shadow-lg object-cover"
+    alt="Imagen descriptiva"
+  />
+
+  <!-- 2. Título debajo, siempre centrado -->
+  <!-- Puedes ajustar el text-2xl al tamaño que prefieras -->
+  <h2 class="text-2xl font-bold text-center px-2 w-full mt-2">
+    {titulo}
+  </h2>
+
+  <!-- 3. Botón Abajo, con bordes redondeados como en la foto -->
+  <a href={enlace} class="btn btn-primary rounded-full px-8 mt-2 text-center w-auto">
+    {textoboton}
+  </a>
+  
+</div>

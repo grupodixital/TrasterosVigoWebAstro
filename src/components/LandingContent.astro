@@ -1,0 +1,64 @@
+---
+import FieldText from '../components/FieldText.astro';
+import { Image } from "astro:assets";
+import FondoTrasterosCabecera from "../assets/fondo-trasteros-vigo-cabecera-1024x247-1.jpg";
+import Features from '../components/Features.astro';
+import FurgonBanner from '../components/FurgonBanner.astro';
+import CardsEspecificaciones from '../components/CardsEspecificaciones.astro';
+import LinkGrid from '../components/LinkGrid.astro';
+import LinkGridAbajo from '../components/LinkGridAbajo.astro';
+import LinkServicios from '../components/LinksServicios.astro';
+import ImagenEmpresa from "../assets/alquiler-trasteros-autonomos-empresas.jpg";
+import ImagenParticulares from "../assets/alquiler-trasteros-particulares.jpg";
+import ImagenMultiples from "../assets/trasteros-multiples-tamanos.jpg";
+import ImagenEstudiantes from "../assets/17-1024x527.jpg";
+import ImagenTaquillas from "../assets/16-1024x527.jpg";
+import ImagenGuardamuebles from "../assets/18-1024x527.jpg";
+---
+<div class="landing-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+	<FieldText text="Bienvenido a <strong>Trasteros Vigo</strong>, si estas buscando <strong>alquilar un trastero en Vigo</strong> para guardar tus cosas, tanto si eres particular como empresa, aquí te vamos a informar de los servicios generales y opcionales que tenemos y realizamos a todos nuestros clientes." />
+	<Features />
+
+	<FieldText text='<h2>¿ Necesitas un alquiler de trastero en Vigo o servicio guardamuebles?</h2>' />
+	<Image class="w-6xl" src={FondoTrasterosCabecera} alt="Alquiler de trasteros en Vigo"    />
+
+	<FieldText text='<p>Como sabes, nos dedicamos al&nbsp;ofrecer servicio de <strong>alquiler de trasteros</strong>, pero junto con el servicio principal, te ponemos todas las<strong>&nbsp;facilidades posibles y la máxima seguridad cara ti, el cliente</strong>.</p>' />
+	<FieldText  text='<h3>Busca tu centro mas cercano con el mejor precio, pide tu presupuesto sin compromiso</h3>' />
+</div>
+    <FurgonBanner />
+<div class="landing-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <FieldText text='<p ><strong>Clientes particulares como empresas, pueden alquilar un espacio de almacenamiento en nuestros centros</strong>, solamente acércate a ver el tamaño que necesitas y te explicaremos detalladamente el funcionamiento y todo lo que necesites saber.</p>' />    
+    
+</div>
+<div class="landing-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 md:grid-cols-2 gap-6"> 
+    <!-- Elemento 1 -->
+    <div><LinkGrid titulo="Empresas y autónomos" imagen={ImagenEmpresa.src} enlace="/alquiler-de-trasteros-a-empresas-o-autonomos/" textoboton="Trasteros para empresas"/></div>
+    
+    <!-- Elemento 2 -->
+    <div><LinkGrid titulo="Particulares" imagen={ImagenParticulares.src} enlace="/alquiler-de-trasteros-a-particulares/" textoboton="Trasteros para particulares"/></div>
+
+</div>
+
+<div class="landing-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <FieldText text='<h2>Almacenes de Múltiples tamaños</h2>' />    
+    <Image class="w-6xl" src={ImagenMultiples} alt="Alquiler de trasteros en Vigo"    />
+    <FieldText text='<p >En nuestros centros vas a poder realizer el <strong>alquiler trasteros vigo</strong> y elegir <strong>distintos tamaños de almacén</strong>( desde 1m3 hasta 50m3), con posibilidad de enviar y recibir la mercancía(previo contrato y dentro de nuestros horarios de recogida), y también te facilitamos el <strong>mover materiales pesados, mediante las carretillas y traspalets</strong> que ponemos a tu disposición.</p>' />    
+    <FieldText text='<p >A parte de lo que te he comentado antes, tu <strong>acceso al trastero está disponible 24 horas al día y los 365 días del año</strong>, con lo que puedes acceder cuando quieras. Realiza tu <strong>mejor alquiler trastero vigo</strong>.</p>' />    
+
+</div>
+    <CardsEspecificaciones />
+<div class="landing-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 md:grid-cols-3 gap-16"> 
+
+    <div><LinkGridAbajo titulo="Trastero para Estudiantes" imagen={ImagenEstudiantes.src} enlace="/alquiler-de-trasteros-en-vigo-para-estudiantes/" textoboton="Trasteros para estudiantes"/></div>
+    <div><LinkGridAbajo titulo="Alquiler de Taquillas" imagen={ImagenTaquillas.src} enlace="/alquiler-de-taquillas-en-vigo/" textoboton="Taquillas en Vigo"/></div>
+    <div><LinkGridAbajo  titulo="Guardamuebles" imagen={ImagenGuardamuebles.src} enlace="/servicio-de-guardamuebles/" textoboton="Servicio de guardamuebles"    /></div>
+
+
+</div>
+	
+<div class="landing-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <FieldText text='<h2>Servicios Extra</h2>' /> 
+    <Image class="w-6xl" src={ImagenMultiples} alt="Alquiler de trasteros en Vigo"    />
+    <FieldText text='<p >A parte de nuestro principal <strong>servicio de self storage Vigo – alquiler trasteros vigo</strong>, también, te podría interesar alguno de los siguientes servicios que ofrecemos en nuesta empresa .</p>' />    
+    <LinkServicios />
+</div>

@@ -1,0 +1,28 @@
+---
+const centros = ["Calvario", "Avda. de Madrid", "Camelias", "Mos"];
+const urlcentrosloc = [
+  "https://g.page/trasterosvigo",
+  "https://g.page/trasterosvigo2",
+  "https://goo.gl/maps/kfDY6CvNqeMCbq8n9",
+  "https://maps.app.goo.gl/Sgx1APUKzqgS9kZ19"
+];
+import { Image } from "astro:assets";
+import iso9001 from "../assets/ISO9001_IMAGEN.png";
+import iso14001 from "../assets/ISO14001_IMAGEN.png";
+---
+
+<div class="flex flex-col items-end gap-2">
+  {centros.map((centro, index) => (
+    <a href={urlcentrosloc[index]} class="btn btn-secondary inline-flex items-center gap-2 ancho150 justify-center skeleton" target="_blank" rel="noopener noreferrer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"></path>
+      </svg>
+      {centro}
+    </a>
+  ))}
+    <div class="text-center grid grid-cols-1 gap-1 mt-1 justify-center items-center">
+        <Image src={iso9001} alt="Certificación ISO 9001" height="80" /><br>
+        <Image src={iso14001} alt="Certificación ISO 14001" height="80" />  
+    </div>
+
+</div>
