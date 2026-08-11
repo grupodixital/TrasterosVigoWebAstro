@@ -1,0 +1,20 @@
+when:
+  - event: push
+    branch: master
+
+steps:
+  - name: build-and-push
+    # :debug tag ships a shell + coreutils; the default kaniko image has none
+    image: gcr.io/kaniko-project/executor:v1.23.2-debug
+    commands:
+      - mkdir -p /kaniko/.docker
+      - echo "$DOCKER_AUTH_CONFIG" > /kaniko/.docker/config.json
+      - >-
+        /kaniko/executor
+        --context=.
+        --dockerfile=Dockerfile
+        --destination=hub.red.grupodixital.es/trasterosvigo-web/trasterosvigo-web:latest
+        --destination=hub.red.grupodixital.es/trasterosvigo-web/trasterosvigo-web:${CI_COMMIT_SHA}
+    environment:
+      DOCKER_AUTH_CONFIG:
+        from_secret: harbor_auth_config
