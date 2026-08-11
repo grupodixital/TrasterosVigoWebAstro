@@ -1,20 +1,23 @@
 ---
 import "../styles/global.css";
 import SEO from "../components/Seo.astro";
+import CookieConsent from "../components/CookieConsent.astro";
 
 const {
   title = "Trasteros en Vigo",
-  description = "Alquiler de Trasteros y guardamubles en Vigo",
-  image = "/src/assets/logo.svg",
+  description = "Alquiler de trasteros y guardamuebles en Vigo. Trasteros de varios tamaños, acceso 24 horas y seguridad, al mejor precio.",
+  image,
 } = Astro.props;
 ---
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
-    	<SEO title={title} description={description} image={image} />
+    	<meta name="theme-color" content="#0A0A0A" />
+    	<SEO title={title} excerpt={description} image={image} />
 	</head>
 	<body>
 		<slot />
+		<CookieConsent />
 	</body>
 </html>
 

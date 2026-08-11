@@ -1,0 +1,174 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("postCollection");
+    return posts.map((post) => ({
+        params: { slug: post.data.slug },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { title, image, excerpt } = post.data;
+const { Content } = await render(post);
+---
+
+<Layout title={title} description={excerpt} image={image?.src}>
+    <div class="flex flex-col min-h-screen bg-black">
+        <Nav />
+
+        <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 grow w-full">
+            <!-- Volver -->
+            <a
+                href="/"
+                class="inline-flex items-center gap-2 text-sm font-semibold text-(--color-gold) hover:text-white transition-colors group mb-8"
+            >
+                <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Volver al inicio
+            </a>
+
+            <div class="grid grid-cols-1 lg:grid-cols-[3fr_1fr] gap-10 md:gap-16 items-start">
+                <!-- COLUMNA PRINCIPAL -->
+                <div>
+                    <header class="mb-8">
+                        <h1 class="italicamarilla text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+                            {title}
+                        </h1>
+                        {excerpt && (
+                            <p class="mt-4 text-lg text-white/70">{excerpt}</p>
+                        )}
+                    </header>
+
+                    {image && (
+                        <div class="rounded-2xl overflow-hidden border-2 border-(--color-gold) shadow-2xl mb-10">
+                            <Image
+                                class="w-full h-62.5 sm:h-87.5 md:h-110 object-cover"
+                                src={image}
+                                alt={title}
+                                width="1000"
+                                height="600"
+                                loading="lazy"
+                            />
+                        </div>
+                    )}
+
+                    <article class="servicio-contenido text-white/85 leading-relaxed">
+                        <Content />
+                    </article>
+
+                    <div class="pt-10 mt-12 border-t border-(--color-gold)/30">
+                        <a
+                            href="/"
+                            class="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-bold rounded-full border-2 border-(--color-gold) text-(--color-gold) hover:bg-(--color-gold) hover:text-black transition-colors w-full sm:w-auto"
+                        >
+                            <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                            </svg>
+                            Volver a la página principal
+                        </a>
+                    </div>
+                </div>
+
+                <!-- COLUMNA SECUNDARIA -->
+                <aside class="hidden lg:block sticky top-8 bg-(--color-ink-soft) p-6 rounded-2xl border-2 border-(--color-gold)">
+                    <h3 class="italicamarilla text-xl font-bold mb-2">¿Necesitas espacio?</h3>
+                    <p class="text-sm text-white/70 leading-relaxed mb-5">
+                        Alquila un trastero en Vigo al mejor precio. Sin permanencia y con acceso cuando lo necesites.
+                    </p>
+                    <a
+                        href="/presupuesto"
+                        class="block text-center rounded-full bg-(--color-gold) text-black font-bold text-sm px-4 py-3 hover:bg-(--color-gold-dark) transition-colors"
+                    >
+                        Solicitar presupuesto
+                    </a>
+                </aside>
+            </div>
+        </main>
+
+        <Footer />
+    </div>
+</Layout>
+
+<style>
+    .servicio-contenido :global(h1),
+    .servicio-contenido :global(h2),
+    .servicio-contenido :global(h3) {
+        font-family: var(--font-heading);
+        color: var(--color-gold);
+        font-weight: 700;
+    }
+    .servicio-contenido :global(h1) {
+        font-size: 1.9rem;
+        margin: 2rem 0 1rem;
+    }
+    .servicio-contenido :global(h2) {
+        font-size: 1.5rem;
+        margin: 2rem 0 1rem;
+    }
+    .servicio-contenido :global(h3) {
+        font-size: 1.2rem;
+        margin: 1.5rem 0 0.75rem;
+    }
+    .servicio-contenido :global(p) {
+        margin: 0 0 1.25rem;
+        font-size: 1.05rem;
+    }
+    .servicio-contenido :global(strong) {
+        color: white;
+        font-weight: 700;
+    }
+    .servicio-contenido :global(em) {
+        color: var(--color-gold);
+        font-style: italic;
+    }
+    .servicio-contenido :global(a) {
+        color: var(--color-gold);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+    .servicio-contenido :global(a:hover) {
+        color: white;
+    }
+    .servicio-contenido :global(ul),
+    .servicio-contenido :global(ol) {
+        margin: 0 0 1.25rem;
+        padding-left: 1.5rem;
+    }
+    .servicio-contenido :global(ul) {
+        list-style: disc;
+    }
+    .servicio-contenido :global(ol) {
+        list-style: decimal;
+    }
+    .servicio-contenido :global(li) {
+        margin: 0 0 0.5rem;
+    }
+    .servicio-contenido :global(li)::marker {
+        color: var(--color-gold);
+    }
+    .servicio-contenido :global(blockquote) {
+        border-left: 3px solid var(--color-gold);
+        padding-left: 1rem;
+        margin: 1.5rem 0;
+        color: white/70;
+        font-style: italic;
+    }
+    .servicio-contenido :global(img) {
+        border-radius: 1rem;
+        border: 2px solid var(--color-gold);
+        margin: 1.5rem 0;
+    }
+    .servicio-contenido :global(hr) {
+        border-color: color-mix(in srgb, var(--color-gold) 30%, transparent);
+        margin: 2rem 0;
+    }
+</style>

@@ -1,7 +1,7 @@
 ---
 interface Props {
   title: string;
-  description: string;
+  excerpt: string;
   image?: string;
   canonicalUrl?: string;
   type?: string;
@@ -9,7 +9,7 @@ interface Props {
 
 const {
   title,
-  description,
+  excerpt,
   image = "/default-og-image.jpg", // Imagen por defecto en public/
   canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href,
   type = "website",
@@ -35,20 +35,20 @@ const formattedTitle = title.includes("Trasteros Vigo")
 <!-- Primary Meta Tags -->
 <title>{formattedTitle}</title>
 <meta name="title" content={formattedTitle} />
-<meta name="description" content={description} />
+<meta name="description" content={excerpt} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:title" content={formattedTitle} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={excerpt} />
 <meta property="og:image" content={new URL(image, Astro.site ?? Astro.url)} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={canonicalUrl} />
 <meta property="twitter:title" content={formattedTitle} />
-<meta property="twitter:description" content={description} />
+<meta property="twitter:description" content={excerpt} />
 <meta property="twitter:image" content={new URL(image, Astro.site ?? Astro.url)} />
 
 <!-- Indexación (Opcional: quitar si quieres que todo indexe) -->

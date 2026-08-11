@@ -1,0 +1,157 @@
+---
+interface Props {
+  icono:
+    | "tamanos"
+    | "recepcion"
+    | "acceso"
+    | "carretillas"
+    | "ubicacion"
+    | "seguridad"
+    | "autocaravanas"
+    | "precios"
+    | "control-acceso"
+    | "parking"
+    | "alarma"
+    | "camara"
+    | "seguro"
+    | "vehiculos"
+    | "embalaje"
+    | "domiciliacion"
+    | "destruccion"
+    | "custodia"
+    | "oficinas";
+  class?: string;
+}
+
+const { icono, class: className = "w-10 h-10 text-(--color-gold)" } = Astro.props;
+---
+
+{icono === "tamanos" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class={className}>
+    <rect x="2" y="9" width="20" height="6" rx="1"></rect>
+    <path d="M5 9v3M9 9v2M13 9v3M17 9v2"></path>
+  </svg>
+)}
+{icono === "recepcion" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class={className}>
+    <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
+    <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+  </svg>
+)}
+{icono === "acceso" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class={className}>
+    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+    <path d="M10 17l5-5-5-5"></path>
+    <path d="M15 12H3"></path>
+  </svg>
+)}
+{icono === "carretillas" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class={className}>
+    <rect x="9" y="3" width="8" height="9" rx="1"></rect>
+    <path d="M5 21V7a2 2 0 0 1 2-2"></path>
+    <path d="M5 15h4"></path>
+    <path d="M3 21h4"></path>
+    <path d="M17 12v7"></path>
+    <circle cx="6" cy="19" r="2"></circle>
+    <circle cx="18" cy="19" r="2"></circle>
+  </svg>
+)}
+{icono === "ubicacion" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class={className}>
+    <path d="M12 21s7-7.75 7-13a7 7 0 1 0-14 0c0 5.25 7 13 7 13z"></path>
+    <circle cx="12" cy="8" r="2.5"></circle>
+  </svg>
+)}
+{icono === "seguridad" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class={className}>
+    <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5z"></path>
+    <path d="m9 12 2 2 4-4"></path>
+  </svg>
+)}
+{icono === "autocaravanas" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class={className}>
+    <path d="M3 8h10l4 4h3a1 1 0 0 1 1 1v3h-2"></path>
+    <path d="M3 8v8h2"></path>
+    <path d="M9 16h6"></path>
+    <circle cx="7" cy="17" r="1.7"></circle>
+    <circle cx="17" cy="17" r="1.7"></circle>
+  </svg>
+)}
+{icono === "precios" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class={className}>
+    <path d="M12.59 2.59 20 10l-8 8-7.41-7.41A2 2 0 0 1 4 9.17V4a2 2 0 0 1 2-2h5.17a2 2 0 0 1 1.42.59z"></path>
+    <circle cx="7.5" cy="7.5" r="1.1" fill="currentColor" stroke="none"></circle>
+  </svg>
+)}
+{icono === "control-acceso" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class={className}>
+    <path d="M4 12h13m0 0-5-5m5 5-5 5"></path>
+  </svg>
+)}
+{icono === "parking" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class={className}>
+    <path d="M6.5 10 8 6.5A2 2 0 0 1 9.8 5.3h4.4A2 2 0 0 1 16 6.5L17.5 10H19a2 2 0 0 1 2 2v3a1 1 0 0 1-1 1h-1a2.2 2.2 0 1 1-4.4 0H9.4a2.2 2.2 0 1 1-4.4 0H3a1 1 0 0 1-1-1v-3a2 2 0 0 1 2-2h1.5Z"></path>
+    <circle cx="7.2" cy="16" r="1.6" fill="black"></circle>
+    <circle cx="16.8" cy="16" r="1.6" fill="black"></circle>
+  </svg>
+)}
+{icono === "alarma" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class={className}>
+    <circle cx="12" cy="5" r="2"></circle>
+    <circle cx="5" cy="16" r="2"></circle>
+    <circle cx="12" cy="19" r="2"></circle>
+    <circle cx="19" cy="14" r="2"></circle>
+    <path d="M12 7v9M12 7 6.5 14.5M12 16l6-2"></path>
+  </svg>
+)}
+{icono === "camara" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class={className}>
+    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+    <circle cx="12" cy="13" r="4"></circle>
+  </svg>
+)}
+{icono === "seguro" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class={className}>
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+    <path d="M14 2v6h6"></path>
+    <path d="M9 13h6M9 17h6"></path>
+  </svg>
+)}
+{icono === "vehiculos" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class={className}>
+    <rect x="1" y="6" width="13" height="10" rx="1"></rect>
+    <path d="M14 9h4l3 3v4h-7z"></path>
+    <circle cx="6" cy="18" r="1.8"></circle>
+    <circle cx="17.5" cy="18" r="1.8"></circle>
+  </svg>
+)}
+{icono === "embalaje" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor" class={className}>
+    <path d="M53.2 41L1.7 143.8c-4.6 9.2.3 20.2 10.1 23l197.9 56.5c7.1 2 14.7-1 18.5-7.3L320 64 69.8 32.1c-6.9-.8-13.5 2.7-16.6 8.9zm585.1 102.8L586.8 41c-3.1-6.2-9.8-9.8-16.7-8.9L320 64l91.7 152.1c3.8 6.3 11.4 9.3 18.5 7.3l197.9-56.5c9.9-2.9 14.7-13.9 10.2-23.1zM425.7 256c-16.9 0-32.8-9-41.4-23.4L320 126l-64.2 106.6c-8.7 14.5-24.6 23.5-41.5 23.5-4.5 0-9-.6-13.3-1.9L64 215v178c0 14.7 10 27.5 24.2 31l216.2 54.1c10.2 2.5 20.9 2.5 31 0L551.8 424c14.2-3.6 24.2-16.4 24.2-31V215l-137 39.1c-4.3 1.3-8.8 1.9-13.3 1.9z"></path>
+  </svg>
+)}
+{icono === "domiciliacion" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class={className}>
+    <path d="M448 75.2v361.7c0 24.3-19 43.2-43.2 43.2H43.2C19.3 480 0 461.4 0 436.8V75.2C0 51.1 18.8 32 43.2 32h361.7c24 0 43.1 18.8 43.1 43.2zm-37.3 361.6V75.2c0-3-2.6-5.8-5.8-5.8h-9.3L285.3 144 224 94.1 162.8 144 52.5 69.3h-9.3c-3.2 0-5.8 2.8-5.8 5.8v361.7c0 3 2.6 5.8 5.8 5.8h361.7c3.2.1 5.8-2.7 5.8-5.8zM150.2 186v37H76.7v-37h73.5zm0 74.4v37.3H76.7v-37.3h73.5zm11.1-147.3l54-43.7H96.8l64.5 43.7zm210 72.9v37h-196v-37h196zm0 74.4v37.3h-196v-37.3h196zm-84.6-147.3l64.5-43.7H232.8l53.9 43.7zM371.3 335v37.3h-99.4V335h99.4z"></path>
+  </svg>
+)}
+{icono === "destruccion" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class={className}>
+    <rect x="3" y="3" width="7" height="7"></rect>
+    <rect x="14" y="3" width="7" height="7"></rect>
+    <rect x="14" y="14" width="7" height="7"></rect>
+    <rect x="3" y="14" width="7" height="7"></rect>
+  </svg>
+)}
+{icono === "custodia" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class={className}>
+    <polyline points="21 8 21 21 3 21 3 8"></polyline>
+    <rect x="1" y="3" width="22" height="5"></rect>
+    <line x1="10" y1="12" x2="14" y2="12"></line>
+  </svg>
+)}
+{icono === "oficinas" && (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class={className}>
+    <path d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"></path>
+  </svg>
+)}

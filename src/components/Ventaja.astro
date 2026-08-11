@@ -1,0 +1,53 @@
+---
+import VentajaIcono from './VentajaIcono.astro';
+
+interface Props {
+  titulo: string;
+  icono:
+    | "tamanos"
+    | "recepcion"
+    | "acceso"
+    | "carretillas"
+    | "ubicacion"
+    | "seguridad"
+    | "autocaravanas"
+    | "precios"
+    | "control-acceso"
+    | "parking"
+    | "alarma"
+    | "camara"
+    | "seguro"
+    | "vehiculos"
+    | "embalaje"
+    | "domiciliacion"
+    | "destruccion"
+    | "custodia"
+    | "oficinas";
+  variant?: "badge" | "card";
+  descripcion?: string;
+  enlace?: string;
+}
+
+const { titulo, icono, variant = "badge", descripcion, enlace } = Astro.props;
+const Wrapper = enlace ? "a" : "div";
+const wrapperProps = enlace ? { href: enlace } : {};
+---
+
+<Wrapper {...wrapperProps} class={enlace ? "block transition-transform hover:-translate-y-0.5" : undefined}>
+  {variant === "card" ? (
+    <div class="bg-gray-50 rounded-xl border border-gray-100 shadow-sm p-6 text-center h-full">
+      <div class="w-12 h-12 rounded-full bg-(--color-gold)/15 flex items-center justify-center mx-auto mb-4">
+        <VentajaIcono icono={icono} class="w-6 h-6 text-(--color-gold)" />
+      </div>
+      <h3 class="font-bold text-lg mb-2">{titulo}</h3>
+      {descripcion && <p class="text-sm text-gray-600">{descripcion}</p>}
+    </div>
+  ) : (
+    <div class="flex flex-col items-center text-center gap-4 w-40 sm:w-48">
+      <div class="flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-black shrink-0">
+        <VentajaIcono icono={icono} class="w-10 h-10 sm:w-11 sm:h-11 text-(--color-gold)" />
+      </div>
+      <p class="font-bold text-black text-base leading-snug">{titulo}</p>
+    </div>
+  )}
+</Wrapper>

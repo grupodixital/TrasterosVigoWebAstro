@@ -1,0 +1,52 @@
+---
+---
+
+<div
+  id="cookie-consent-banner"
+  class="fixed inset-x-0 bottom-0 z-100 hidden border-t-2 border-(--color-gold) bg-black px-4 py-4 sm:px-6"
+>
+  <div class="mx-auto flex max-w-6xl flex-col items-center gap-4 sm:flex-row sm:justify-between">
+    <p class="text-sm text-white/80 text-center sm:text-left">
+      Utilizamos cookies propias y de terceros (como YouTube) para mejorar tu experiencia y mostrar contenido incrustado. Puedes aceptarlas o rechazarlas.
+      <a href="/politica-de-cookies" class="text-(--color-gold) underline hover:text-white">Más información</a>.
+    </p>
+    <div class="flex shrink-0 gap-3">
+      <button
+        type="button"
+        id="cookie-reject-btn"
+        class="rounded-full border-2 border-(--color-gold) px-5 py-2 text-sm font-bold text-(--color-gold) transition-colors hover:bg-(--color-gold) hover:text-black"
+      >
+        Rechazar
+      </button>
+      <button
+        type="button"
+        id="cookie-accept-btn"
+        class="rounded-full bg-(--color-gold) px-5 py-2 text-sm font-bold text-black transition-colors hover:bg-(--color-gold-dark)"
+      >
+        Aceptar
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { getConsent, setConsent } from "../scripts/cookie-consent";
+
+  const banner = document.getElementById("cookie-consent-banner");
+  const acceptBtn = document.getElementById("cookie-accept-btn");
+  const rejectBtn = document.getElementById("cookie-reject-btn");
+
+  if (banner && !getConsent()) {
+    banner.classList.remove("hidden");
+  }
+
+  acceptBtn?.addEventListener("click", () => {
+    setConsent("accepted");
+    banner?.classList.add("hidden");
+  });
+
+  rejectBtn?.addEventListener("click", () => {
+    setConsent("rejected");
+    banner?.classList.add("hidden");
+  });
+</script>

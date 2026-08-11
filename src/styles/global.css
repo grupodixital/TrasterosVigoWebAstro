@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 @plugin "daisyui";
 
@@ -11,8 +12,8 @@
   --color-bg-alt: #F5F5F3;
   --color-text-muted: #000000;
 
-  --font-heading: "Playfair Display", serif;
-  --font-body: "Poppins", sans-serif;
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Montserrat", sans-serif;
 
   --radius-pill: 999px;
 }
@@ -30,11 +31,16 @@ h1, h2, h3, .brand {
 }
 
 h1 {
-      font-weight: 800;
+      font-weight: 900;
 }
 
 h2{
-      font-weight: 500;
+      font-weight: 600;
+}
+
+
+h3{
+      font-weight: 400;
 }
 
 .btn {
@@ -64,4 +70,47 @@ h2{
   color: var(--color-ink);
   border: 2px solid var(--color-ink);
   padding: 14px 30px;
+}
+
+.italicamarilla{
+    font-style: italic;
+    color: #E7C13B
+}
+
+.hoveramarillo:hover{
+    background: #5a4f26;
+}
+
+.ancho150{
+    width: 350px;
+    font-size: 22px;
+}
+
+
+.texto20{
+    font-size: 20px;
+}
+
+.landing-content,
+.landing-content p,
+.landing-content strong,
+.landing-content em,
+.landing-content span,
+.landing-content li {
+    font-size: 18px;
+}
+
+.landing-content h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.landing-content h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+}
+
+.landing-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
 }

@@ -1,6 +1,7 @@
 ---
 import InfoCabezera from "./Infocabezera.astro";
-
+import Leftcabecera from "./Leftcabecera.astro";
+import Rightcabecera from "./Rightcabecera.astro";
 import Imagenlogo from "../assets/fondo-Trasteros-Vigo.webp";
 ---
 
@@ -10,13 +11,19 @@ import Imagenlogo from "../assets/fondo-Trasteros-Vigo.webp";
   style={`background-image: url(${Imagenlogo.src});`}
 >
   <div class="hero-overlay"></div>
-  <div class="hero-content text-neutral-content text-center">
-    <div class="">
-        <div class="grid grid-cols-3 gap-1">
-                <div class="">01</div>
-                <div class=""><InfoCabezera /></div>
-                <div class="">03</div>
-            </div>        
+  <div class="hero-content text-neutral-content text-center w-full max-w-none px-4">
+    <div class="w-full">
+        <div class="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-4">
+                <div class="basis-full lg:basis-1/5">
+                  <Leftcabecera />
+                </div>
+                <div class="basis-full lg:basis-3/5">
+                  <InfoCabezera />
+                </div>
+                <div class="basis-full lg:basis-1/5">
+                  <Rightcabecera />
+                </div>
+            </div>
     </div>
   </div>
 </div>
