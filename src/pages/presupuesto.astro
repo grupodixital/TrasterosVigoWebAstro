@@ -5,7 +5,12 @@ import Footer from "../components/Footer.astro";
 
 // TODO: sustituye esto por tu Access Key real de https://web3forms.com/
 const WEB3FORMS_ACCESS_KEY = "f5b4ba9e-f1eb-45e8-9337-a7b5655c96ee";
+const tiempoestimado =[
+  "1- Entre 1 mes y menor de 6 meses",
+  "6 - 6 meses o menos de 12 meses",
+  "12 -  12 meses o mayor",
 
+];
 const tamanos = [
   "1 - 2 m² (maletas, cajas)",
   "3 - 5 m² (trastero pequeño)",
@@ -99,6 +104,7 @@ const centros = ["Calvario", "Avda. de Madrid", "Camelias", "Mos"];
                   {tamanos.map((t) => <option value={t}>{t}</option>)}
                 </select>
               </div>
+              
               <div>
                 <label for="centro" class="block text-sm font-bold text-(--color-gold) mb-1.5">Centro preferido</label>
                 <select
@@ -112,7 +118,18 @@ const centros = ["Calvario", "Avda. de Madrid", "Camelias", "Mos"];
                 </select>
               </div>
             </div>
-
+            <div>
+              <label for="tiempoestimado" class="block text-sm font-bold text-(--color-gold) mb-1.5">Tiempo estimado</label>
+              <select
+                id="tiempoestimado"
+                name="tiempoestimado"
+                required
+                class="w-full rounded-lg bg-black border border-(--color-gold)/40 text-white placeholder-white/40 px-4 py-2.5 focus:border-(--color-gold) focus:outline-none transition-colors"
+              >
+                  <option value="" disabled selected>Selecciona un centro</option>
+                  {tiempoestimado.map((c) => <option value={c}>{c}</option>)}
+              </select>
+            </div>
             <div>
               <label for="mensaje" class="block text-sm font-bold text-(--color-gold) mb-1.5">Cuéntanos qué necesitas guardar (opcional)</label>
               <textarea
