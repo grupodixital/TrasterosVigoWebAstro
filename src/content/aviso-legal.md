@@ -15,7 +15,7 @@ El presente Aviso Legal regula el uso del servicio del portal de Internet con di
 * **Responsable:** PRODAT GALICIA SL
 * **NIF:** B27727668
 * **Dirección:** AVD MADRID , 129
-* **Teléfono:** 686572895
+* **Teléfono:** 986953832
 * **Mail:** ADMINISTRACION@TRASTEROSVIGO.COM
 
 ## Legislación
