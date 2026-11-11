@@ -1,0 +1,36 @@
+---
+// Google Tag Manager: solo se carga si el usuario acepta las cookies.
+const GTM_ID = "GTM-M8RW3ND3";
+---
+
+<script is:inline define:vars={{ GTM_ID }}>
+  (function () {
+    var CONSENT_KEY = "tv-cookie-consent";
+    var CONSENT_EVENT = "tv:cookie-consent";
+    var loaded = false;
+
+    function loadGTM() {
+      if (loaded) return;
+      loaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtm.js?id=" + GTM_ID;
+      document.head.appendChild(s);
+    }
+
+    var consent = null;
+    try {
+      consent = localStorage.getItem(CONSENT_KEY);
+    } catch (e) {}
+
+    if (consent === "accepted") {
+      loadGTM();
+    } else {
+      window.addEventListener(CONSENT_EVENT, function (event) {
+        if (event.detail === "accepted") loadGTM();
+      });
+    }
+  })();
+</script>

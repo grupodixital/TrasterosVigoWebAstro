@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import SEO from "../components/Seo.astro";
 import CookieConsent from "../components/CookieConsent.astro";
+import Analytics from "../components/Analytics.astro";
 
 const {
   title = "Trasteros en Vigo",
@@ -14,6 +15,7 @@ const {
 	<head>
     	<meta name="theme-color" content="#0A0A0A" />
     	<SEO title={title} excerpt={description} image={image} />
+    	<Analytics />
 	</head>
 	<body>
 		<slot />
